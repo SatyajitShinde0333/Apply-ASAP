@@ -14,16 +14,19 @@
       min-height: 100vh;
     }
     header {
-      background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
-      color: white;
-      padding: 2rem 1rem 1.5rem 1rem;
-      text-align: center;
-      font-size: 2.2rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      border-radius: 0 0 24px 24px;
-    }
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+  color: #fff;
+  padding: 2.2rem 1rem 1.7rem 1rem;
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 6px 24px rgba(0,123,255,0.13), 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
     .container {
       max-width: 1100px;
       margin: 2.5rem auto;
@@ -99,18 +102,26 @@
       text-decoration: none;
     }
     @media (max-width: 700px) {
-      header {
-        font-size: 1.3rem;
-        padding: 1.2rem 0.5rem;
-      }
-      .container {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-      }
-      .company {
-        padding: 1.2rem 1rem;
-      }
-    }
+  header {
+    font-size: 1.3rem;
+    padding: 1.2rem 0.5rem;
+  }
+  .container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .company {
+    padding: 1.2rem 1rem;
+  }
+  .company h2 {
+    font-size: 1.1rem;
+  }
+  .links a {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.9rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -129,69 +140,69 @@
     <div class="company">
       <h2>UBS</h2>
       <ul class="links">
-        <li><a href="https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&partnerid=25008&siteid=5012&jobid=325938&codes=ILINKEDIN#jobDetails=325938_5012" target="">Java SDE</a></li>
-        <li><a href="https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&partnerid=25008&siteid=5012&jobid=323494&codes=ILINKEDIN#jobDetails=323494_5012" target="">SDE</a></li>
+        <li><a href="https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&partnerid=25008&siteid=5012&jobid=325938&codes=ILINKEDIN#jobDetails=325938_5012" target="_blank">Java SDE</a></li>
+        <li><a href="https://jobs.ubs.com/TGnewUI/Search/home/HomeWithPreLoad?PageType=JobDetails&partnerid=25008&siteid=5012&jobid=323494&codes=ILINKEDIN#jobDetails=323494_5012" target="_blank">SDE</a></li>
         <li><a href="https://www.linkedin.com/jobs/view/4255736617/" target="">Full Stack</a></li>
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4256387635/?refId=gvfmO7SYTiGgcP72lcHWEA%3D%3D&trackingId=gvfmO7SYTiGgcP72lcHWEA%3D%3D">SDE1</a></li>
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4255736617/">All Openings</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4256387635/?refId=gvfmO7SYTiGgcP72lcHWEA%3D%3D&trackingId=gvfmO7SYTiGgcP72lcHWEA%3D%3D" target="_blank">SDE1</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4255736617/" target="_blank">All Openings</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>Deutsche Bank</h2>
       <ul class="links">
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4255422508/">SDE</a></li>
-        <li><a href="#" target="https://db.wd3.myworkdayjobs.com/DBWebsite/job/Pune---Margarpatta/Apprentice-Role-for-Technology-hiring-2025---2026_R0390875">Apprentice-Role-for-Technology-hiring-2025---2026_R0390875</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4255422508/" target="">SDE</a></li>
+        <li><a href="https://db.wd3.myworkdayjobs.com/DBWebsite/job/Pune---Margarpatta/Apprentice-Role-for-Technology-hiring-2025---2026_R0390875" target="_blank">Apprentice-Role-for-Technology-hiring-2025---2026_R0390875</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>Mastercard</h2>
       <ul class="links">
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4254834133/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=FCCMtgJ%2FTNuWPXx0SrLVOg%3D%3D">Careers</a></li>
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4225663345/?refId=36cd3919-4da9-42a3-ad26-71e8d2a4682a&trackingId=h%2FJnFp1NQKyJqwbRVOCoQA%3D%3D">Internships</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4254834133/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=FCCMtgJ%2FTNuWPXx0SrLVOg%3D%3D" target="_blank">Careers</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4225663345/?refId=36cd3919-4da9-42a3-ad26-71e8d2a4682a&trackingId=h%2FJnFp1NQKyJqwbRVOCoQA%3D%3D" target="_blank">Internships</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>IDFC</h2>
       <ul class="links">
-        <li><a href="#" target="https://careers.idfcfirstbank.com/in/en/job/IFBAINP169104ENIN">Apply</a></li>
+        <li><a href="https://careers.idfcfirstbank.com/in/en/job/IFBAINP169104ENIN" target="_blank">Apply</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>Emersion</h2>
       <ul class="links">
-        <li><a href="#" target="https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/25022577">Careers</a></li>
+        <li><a href="https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/25022577" target="_blank">Careers</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>Tietoevry</h2>
       <ul class="links">
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4256561192/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=1xiejoN4SuSL%2F9glHYgDmA%3D%3D">Open Positions</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4256561192/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=1xiejoN4SuSL%2F9glHYgDmA%3D%3D" target="_blank">Open Positions</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>BP</h2>
       <ul class="links">
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4258028130/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=qV230OIOTS6vvbjEl3gFdg%3D%3D">Careers</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4258028130/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=qV230OIOTS6vvbjEl3gFdg%3D%3D" target="">Careers</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>Barclays</h2>
       <ul class="links">
-        <li><a href="#" target="https://www.linkedin.com/jobs/view/4253334825/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=YYEgnyXQS52Dob6go688YA%3D%3D">Graduate Program</a></li>
+        <li><a href="https://www.linkedin.com/jobs/view/4253334825/?refId=6a425bba-f2a3-44de-a553-b410792e4105&trackingId=YYEgnyXQS52Dob6go688YA%3D%3D" target="_blank">Graduate Program</a></li>
       </ul>
     </div>
 
     <div class="company">
       <h2>Capgemini</h2>
       <ul class="links">
-        <li><a href="#" target="https://careers.capgemini.com/job/Pune-Software-Engineer/1208911101/">Careers</a></li>
+        <li><a href="https://careers.capgemini.com/job/Pune-Software-Engineer/1208911101/" target="_blank">Careers</a></li>
       </ul>
     </div>
 
