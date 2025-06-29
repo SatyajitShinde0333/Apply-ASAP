@@ -122,15 +122,53 @@
     padding: 0.4rem 0.9rem;
   }
 }
+.add-job-btn {
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+  color: #fff;
+  padding: 0.45rem 1.1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.13s;
+  cursor: pointer;
+  margin: 1rem 0 1.5rem 0;
+  display: inline-block;
+}
+.add-job-btn:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+  box-shadow: 0 4px 16px rgba(0,123,255,0.18);
+  transform: translateY(-2px) scale(1.04);
+  text-decoration: none;
+}
   </style>
+  <!-- Add inside your header or nav -->
+  <!-- <a href="add-job.html" style="color:#fff; margin-left:1rem; font-size:1rem;">+ Add Job</a> -->
   <link rel="icon" type="image/png" href="https://img.icons8.com/color/48/000000/briefcase--v1.png">
 
 </head>
+
 <body>
   <header>
     
     <span>🚀 Job Companies & Links</span>
   </header>
+  <button id="openJobModal" class="add-job-btn">Add Job</button>
+
+<div id="jobModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); z-index:1000; align-items:center; justify-content:center;">
+  <form id="jobForm" style="background:#fff; padding:2rem 1.5rem; border-radius:12px; box-shadow:0 4px 24px #007bff22; min-width:300px; max-width:90vw; display:flex; flex-direction:column; gap:1rem; position:relative;">
+    <button type="button" id="closeJobModal" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.3rem; cursor:pointer;">&times;</button>
+    <h2 style="color:#007bff; margin-bottom:0.5rem;">Add a Job</h2>
+    <label>Company Name <input type="text" id="company" required></label>
+    <label>Job Role <input type="text" id="role" required></label>
+    <label>Job Link <input type="url" id="link" required></label>
+    <button type="submit" style="background:linear-gradient(90deg,#007bff 60%,#00c6ff 100%); color:#fff; border:none; border-radius:6px; padding:0.7rem; font-size:1.1rem; font-weight:600; cursor:pointer;">Add Job</button>
+    <div id="successMsg" style="color:green; text-align:center;"></div>
+  </form>
+</div>
   <div class="container">
 
     <div class="company">
@@ -208,6 +246,7 @@
         <li><a href="https://careers.capgemini.com/job/Pune-Software-Engineer/1208911101/" target="_blank">Careers</a></li>
       </ul>
     </div>
+
     <div class="company">
       <h2>HSBC</h2>
       <ul class="links">
@@ -217,5 +256,97 @@
     </div>
 
   </div>
+
+
+  <script>
+    // Helper: Load saved jobs from localStorage
+    function loadJobs() {
+      const saved = localStorage.getItem('jobs');
+      return saved ? JSON.parse(saved) : [];
+    }
+    
+    // Helper: Save all jobs back to localStorage
+    function saveJobs(jobs) {
+      localStorage.setItem('jobs', JSON.stringify(jobs));
+    }
+    
+    // Helper: Render one job into the container
+    function renderJob(job) {
+      const companyDiv = document.createElement('div');
+      companyDiv.className = 'company';
+    
+      const h2 = document.createElement('h2');
+      h2.textContent = job.company;
+      companyDiv.appendChild(h2);
+    
+      const ul = document.createElement('ul');
+      ul.className = 'links';
+    
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = job.link;
+      a.target = '_blank';
+      a.textContent = job.role;
+    
+      li.appendChild(a);
+      ul.appendChild(li);
+      companyDiv.appendChild(ul);
+    
+      document.querySelector('.container').appendChild(companyDiv);
+    }
+    
+    // Load existing jobs on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const jobs = loadJobs();
+      jobs.forEach(renderJob);
+    });
+    
+    // Modal open/close handlers
+    document.getElementById('openJobModal').addEventListener('click', function() {
+      document.getElementById('jobModal').style.display = 'flex';
+    });
+    
+    document.getElementById('closeJobModal').addEventListener('click', function() {
+      document.getElementById('jobModal').style.display = 'none';
+    });
+    
+    document.getElementById('jobModal').addEventListener('click', function(event) {
+      if (event.target === this) {
+        this.style.display = 'none';
+      }
+    });
+    
+    // Form submit handler
+    document.getElementById('jobForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+    
+      const companyName = document.getElementById('company').value.trim();
+      const role = document.getElementById('role').value.trim();
+      const link = document.getElementById('link').value.trim();
+    
+      if (companyName && role && link) {
+        const newJob = { company: companyName, role: role, link: link };
+    
+        // Save to localStorage
+        const jobs = loadJobs();
+        jobs.push(newJob);
+        saveJobs(jobs);
+    
+        // Render immediately
+        renderJob(newJob);
+    
+        // Success message and reset
+        document.getElementById('successMsg').textContent = '✅ Job added successfully!';
+        setTimeout(() => {
+          document.getElementById('successMsg').textContent = '';
+          document.getElementById('jobModal').style.display = 'none';
+          document.getElementById('jobForm').reset();
+        }, 1200);
+      }
+    });
+    </script>
+    
+    
+    
 </body>
 </html>
