@@ -316,34 +316,39 @@
       }
     });
     
-    // Form submit handler
     document.getElementById('jobForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-    
-      const companyName = document.getElementById('company').value.trim();
-      const role = document.getElementById('role').value.trim();
-      const link = document.getElementById('link').value.trim();
-    
-      if (companyName && role && link) {
-        const newJob = { company: companyName, role: role, link: link };
-    
-        // Save to localStorage
-        const jobs = loadJobs();
-        jobs.push(newJob);
-        saveJobs(jobs);
-    
-        // Render immediately
-        renderJob(newJob);
-    
-        // Success message and reset
-        document.getElementById('successMsg').textContent = '✅ Job added successfully!';
-        setTimeout(() => {
-          document.getElementById('successMsg').textContent = '';
-          document.getElementById('jobModal').style.display = 'none';
-          document.getElementById('jobForm').reset();
-        }, 1200);
-      }
-    });
+    event.preventDefault();
+
+    const companyName = document.getElementById('company').value.trim();
+    const role = document.getElementById('role').value.trim();
+    const link = document.getElementById('link').value.trim();
+
+    if (companyName && role && link) {
+      
+      const newJob = { company: companyName, role: role, link: link };
+
+    // Load all existing jobs
+    const jobs = loadJobs();
+
+    // Append the new job
+    jobs.push(newJob);
+
+    // Save back the updated array
+    saveJobs(jobs);
+
+    // Render the new job on the page
+    renderJob(newJob);
+
+    // Show success
+    document.getElementById('successMsg').textContent = '✅ Job added successfully!';
+    setTimeout(() => {
+      document.getElementById('successMsg').textContent = '';
+      document.getElementById('jobModal').style.display = 'none';
+      document.getElementById('jobForm').reset();
+    }, 1200);
+  }
+});
+
     </script>
     
     
